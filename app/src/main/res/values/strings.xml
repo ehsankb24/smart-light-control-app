@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">samrt-light-control-app</string>
-    <string name="client_id">client_id</string>
+    <string name="bulb_id">bulb_id</string>
     <string name="server_address">tcp://broker.emqx.io:1883</string>
 </resources>

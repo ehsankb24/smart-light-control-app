@@ -26,7 +26,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sepiddynamics.samrt_light_control_app.ui.theme.SamrtlightcontrolappTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel by viewModels<MainViewModel>()
@@ -108,7 +110,8 @@ private fun ConnectedLayout(
             value = state.progressValue,
             onValueChange = state.onValueChange,
             onValueChangeFinished = state.onValueChangeFinished,
-            valueRange = 0f..100f
+            valueRange = 0f..100f,
+            enabled = state.isOn
         )
         Text(text = state.progressLabel)
     }
@@ -140,7 +143,7 @@ private fun MainLayoutConnectPreview() {
     SamrtlightcontrolappTheme {
         MainLayout(
             viewState = MainViewState.Connected(
-                isOn = true,
+                isOn = false,
                 progressValue = 10f,
                 onValueChange = {},
                 onCheckedChange = {},

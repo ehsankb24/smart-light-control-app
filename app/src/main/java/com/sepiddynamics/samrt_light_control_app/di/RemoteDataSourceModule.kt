@@ -18,7 +18,7 @@ class RemoteDataSourceModule {
     @Provides
     fun provideClientId(
         @ApplicationContext context: Context
-    ): String = context.getString(R.string.client_id)
+    ): String = context.getString(R.string.bulb_id)
 
     @ServerUrl
     @Provides
@@ -28,11 +28,10 @@ class RemoteDataSourceModule {
 
     @Provides
     fun provideMqttClient(
-        @ServerUrl serverUrl: String,
-        @ClientId clientId: String
+        @ServerUrl serverUrl: String
     ) = MqttClient(
         serverUrl,
-        clientId,
+        "android app",
         MemoryPersistence()
     )
 }
